@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hugo-app-blue
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: hugo-app-blue-green
+        color: red
+    spec:
+      containers:
+        - name: hugo-app
+          image: dr4infydevops/hugo-app:red
+          ports:
+            - containerPort: 80
